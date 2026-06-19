@@ -1,12 +1,11 @@
-// KRYA Global Navbar Component
 const navbarHTML = `
-<nav style="background: var(--primary-color); padding: 15px; color: white; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-    <div style="font-size: 24px; font-weight: bold; color: var(--accent-color);">KRYA</div>
+<nav style="background: #004d40; padding: 15px; color: white; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+    <div style="font-weight: bold; font-size: 20px;">KRYA</div>
     <div>
-        <a href="/index.html" style="color: white; margin: 0 10px; text-decoration: none;">Home</a>
-        <a href="/marketplace/products.html" style="color: white; margin: 0 10px; text-decoration: none;">Shop</a>
-        <a href="/rewards/rewards.html" style="color: white; margin: 0 10px; text-decoration: none;">Rewards</a>
-        <a href="/user/dashboard.html" style="color: white; margin: 0 10px; text-decoration: none;">Profile</a>
+        <a href="/KRYA-MASTER/index.html" style="color: white; margin: 0 10px; text-decoration: none;">Home</a>
+        <a href="/KRYA-MASTER/marketplace/products.html" style="color: white; margin: 0 10px; text-decoration: none;">Shop</a>
+        <a href="/KRYA-MASTER/rewards/rewards.html" style="color: white; margin: 0 10px; text-decoration: none;">Rewards</a>
+        <a href="/KRYA-MASTER/admin/dashboard.html" style="color: white; margin: 0 10px; text-decoration: none;">Profile</a>
     </div>
 </nav>
 `;
