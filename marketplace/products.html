@@ -15,14 +15,42 @@
         <h2 style="text-align: center;">🛍️ अनुशंसित उत्पाद (Affiliate)</h2>
         <p style="text-align: center;">यहाँ आपको चुनिंदा और बेहतरीन प्रोडक्ट्स मिलेंगे।</p>
 
-        <!-- एक प्रोडक्ट कार्ड का उदाहरण -->
-        <div style="border: 1px solid #ddd; padding: 15px; border-radius: 10px; margin-top: 20px;">
-            <h3>प्रोडक्ट का नाम</h3>
-            <p>यहाँ प्रोडक्ट का संक्षिप्त विवरण होगा।</p>
-            <a href="#" class="btn-premium">अभी खरीदें</a>
+        <!-- यहाँ से Google Sheet का डेटा लोड होगा -->
+        <div id="product-container">
+            <p style="text-align: center;">प्रोडक्ट्स लोड हो रहे हैं...</p>
         </div>
+
+        <script>
+            // आपकी Google Sheet से डेटा लाने का कोड
+            const sheetUrl = "https://docs.google.com/spreadsheets/d/1zAQ-eacSyKQliGs5GmvDt9V2N9yGehTOCWpUpMFAoY8/gviz/tq?tqx=out:json";
+            
+            fetch(sheetUrl)
+              .then(res => res.text())
+              .then(text => {
+                const json = JSON.parse(text.substring(47).slice(0, -2));
+                const rows = json.table.rows;
+                
+                let html = '<div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 20px;">';
+                
+                rows.forEach(row => {
+                  html += `
+                    <div style="border: 1px solid #ddd; padding: 15px; width: 250px; border-radius: 10px; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                      <img src="${row.c[1].v}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 5px;">
+                      <h3 style="margin: 10px 0;">${row.c[0].v}</h3>
+                      <p style="color: #555;">कीमत: ${row.c[2].v}</p>
+                      <a href="${row.c[3].v}" target="_blank" style="display: inline-block; padding: 10px 20px; background: #d4af37; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">अभी खरीदें</a>
+                    </div>
+                  `;
+                });
+                
+                html += '</div>';
+                document.getElementById('product-container').innerHTML = html;
+              })
+              .catch(err => {
+                document.getElementById('product-container').innerHTML = "<p style='text-align: center; color: red;'>प्रोडक्ट्स लोड करने में समस्या आई। कृपया शीट की सेटिंग चेक करें।</p>";
+              });
+          </script>
     </div>
 
 </body>
 </html>
-
