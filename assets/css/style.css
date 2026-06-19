@@ -1,0 +1,50 @@
+/* KRYA Global Styles */
+:root {
+    --primary-color: #004d40; /* Monaco Green */
+    --accent-color: #ffd700;  /* Gold */
+    --text-dark: #333;
+    --bg-light: #f4f4f9;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    margin: 0;
+    padding: 0;
+}
+
+/* प्रीमियम ग्लासमोर्फिज्म कार्ड */
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+/* बटन स्टाइल */
+.btn-premium {
+    background: linear-gradient(135deg, var(--primary-color), #25D366);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.btn-premium:hover {
+    transform: scale(1.05);
+}
+
+/* गोल्ड एक्सेंट */
+h1, h2 {
+    color: var(--primary-color);
+    border-bottom: 3px solid var(--accent-color);
+    display: inline-block;
+}
